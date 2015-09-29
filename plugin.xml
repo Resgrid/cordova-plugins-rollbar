@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="resgrid.cordova.plugins.rollbar"
+    version="1.0.0">
+
+    <name>Rollbar</name>
+
+    <description>
+      This plugin adds Rollbar App monitoring to your application.
+    </description>
+
+    <license>http://www.crittercism.com/terms-services/</license>
+
+    <keywords>resgrid, rollbar, crash, monitor, apm, error, exception, performance</keywords>
+
+    <engines>
+        <engine name="cordova" version=">=3.3.0" />
+    </engines>
+
+    <!-- JavaScript interface -->
+    <js-module src="www/rollbar.js" name="RollbarJSInterface">
+        <clobbers target="window.Rollbar" />
+    </js-module>
+
+    <!-- ios -->
+    <platform name="ios">
+        <preference name="ROLLBAR_ACCESS_TOKEN" />
+		<preference name="ROLLBAR_ENVIRONMENT" />
+        <config-file target="config.xml" parent="/*">
+            <feature name="CDVRollbar">
+                <param name="ios-package" value="CDVRollbar" />
+                <param name="onload" value="true" />
+            </feature>
+            <plugin name="CDVRollbar" value="CDVRollbar"/>
+        </config-file>
+
+        <header-file src="platforms/ios/CDVRollbar.h" />
+        <source-file src="platforms/ios/CDVRollbar.m" />
+
+        <config-file target="*-Info.plist" parent="CritterAppID">
+            <string>$ROLLBAR_ACCESS_TOKEN</string>
+			<string>$ROLLBAR_ENVIRONMENT</string>
+        </config-file>
+
+        <framework src="platforms/ios/RollbarSDK/CrashReporter.framework" />
+		<framework src="platforms/ios/RollbarSDK/Rollbar.framework" />
+    </platform>
+
+    <!-- android -->
+    <platform name="android">
+        <preference name="ROLLBAR_ACCESS_TOKEN" />
+		<preference name="ROLLBAR_ENVIRONMENT" />
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="CDVRollbar">
+                <param name="android-package" value="resgrid.cordova.plugins.rollbar" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+        <source-file src="platforms/android/res/values/rollbar.xml" target-dir="res/values/" />
+        <config-file target="res/values/rollbar.xml" parent="/*">
+            <string name="rollbar_access_token">$ROLLBAR_ACCESS_TOKEN</string>
+			<string name="rollbar_environment">$ROLLBAR_ENVIRONMENT</string>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <meta-data android:name="resgrid.cordova.plugins.rollbar.AccessToken" android:value="@string/rollbar_access_token"/>
+			<meta-data android:name="resgrid.cordova.plugins.rollbar.Environment" android:value="@string/rollbar_environment"/>
+            <!-- PhoneGap adds the INTERNET permission by itself -->
+            <uses-permission android:name="android.permission.READ_LOGS"/>
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+            <uses-permission android:name="android.permission.GET_TASKS"/>
+        </config-file>
+
+        <!-- copy Rollbar Lib -->
+        <source-file src="platforms/android/RollbarSDK/rollbar-android-0.1.2.jar" target-dir="libs/" framework="true" />
+
+        <!-- cordova plugin src files -->
+        <source-file src="platforms/android/resgrid/cordova/plugins/rollbar.java" target-dir="src/resgrid/cordova/plugins/" />
+
+    </platform>
+
+</plugin>
+
