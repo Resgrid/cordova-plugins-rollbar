@@ -12,7 +12,7 @@
       This plugin adds Rollbar App monitoring to your application.
     </description>
 
-    <license>http://www.crittercism.com/terms-services/</license>
+    <license>https://raw.githubusercontent.com/Resgrid/cordova-plugins-rollbar/master/LICENSE</license>
 
     <keywords>resgrid, rollbar, crash, monitor, apm, error, exception, performance</keywords>
 

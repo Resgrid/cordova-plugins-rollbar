@@ -16,8 +16,7 @@ import android.content.Context;
 import android.content.res.Resources;
 
 public class CDVRollbar extends CordovaPlugin {
-    public static final String ACTION_LOG_HANDLED_EXCEPTION = "rollbarLogHandledException";
-    public static final String ACTION_LOG_CRASH_EXCEPTION = "rollbarLogUnhandledException";
+    public static final String INIT = "init";
 
     public static final String ROLLBAR_ACCESS_TOKEN = "rollbar_access_token";
 	public static final String ROLLBAR_ENVIRONMENT = "rollbar_environment";
@@ -43,17 +42,7 @@ public class CDVRollbar extends CordovaPlugin {
     public boolean execute(String action, final JSONArray args,
                            CallbackContext callbackContext) throws JSONException {
         try {
-            if (ACTION_LOG_HANDLED_EXCEPTION.equals(action)) {
-                final String name = args.getString(0);
-                final String msg = args.getString(1);
-                final String stack = args.getString(2);
-                cordova.getThreadPool().execute(new Runnable() {
-                    public void run() {
-						 Rollbar.reportException(stack, "warning", msg);
-                    }
-                });
-                return true;
-            } else if (ACTION_LOG_CRASH_EXCEPTION.equals(action)) {
+            if (INIT.equals(action)) {
                 final String msg = args.getString(0);
                 final String stack = args.getString(1);
                 cordova.getThreadPool().execute(new Runnable() {
