@@ -15,7 +15,7 @@ Sign up for your free [Resgrid Account Today!](https://resgrid.com).
 You can install the plugin by running the following command.
 
 ```
-cordova plugin add https://github.com/reallyenglish/cordova-raygun.git
+cordova plugin add https://github.com/Resgrid/cordova-plugins-rollbar.git
 ```
 
 ## Supported Platforms ##
