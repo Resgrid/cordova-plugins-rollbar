@@ -11,6 +11,11 @@ Resgrid is built on Microsoft's Azure platform, utilizing the Ionic Framework/Co
 
 Sign up for your free [Resgrid Account Today!](https://resgrid.com).
 
+Rollbar
+-------------
+
+This plugin requires a Rollbar account. Sign up for your free Rollbar account [here](https://rollbar.com/).
+
 ## Installation ##
 You can install the plugin by running the following command.
  
