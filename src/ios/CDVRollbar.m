@@ -8,16 +8,21 @@
 
 @implementation CDVRollbar
 
-- (void)init:(CDVInvokedUrlCommand *)command
+- (void)pluginInitialize
 {
-    NSString *accessToken = [command.arguments objectAtIndex:0];
-    NSString *environment = [command.arguments objectAtIndex:1];
+	NSString *RollbarAccessToken = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"RollbarAccessToken"];
+	NSString *RollbarEnvironment = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"RollbarEnvironment"];
 	
 	RollbarConfiguration *config = [RollbarConfiguration configuration];
 	config.crashLevel = @"critical";
-	config.environment = environment;
+	config.environment = RollbarEnvironment;
 
-	[Rollbar initWithAccessToken:accessToken configuration:config];
+	[Rollbar initWithAccessToken:RollbarAccessToken configuration:config];
+}
+
+- (void)init:(CDVInvokedUrlCommand *)command
+{
+
 }
 
 @end

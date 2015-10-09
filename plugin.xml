@@ -12,7 +12,7 @@
       This plugin adds Rollbar App monitoring to your application.
     </description>
 
-    <license>https://raw.githubusercontent.com/Resgrid/cordova-plugins-rollbar/master/LICENSE</license>
+    <license>Apache 2.0</license>
 
     <keywords>resgrid, rollbar, crash, monitor, apm, error, exception, performance</keywords>
 
@@ -40,8 +40,11 @@
         <header-file src="platforms/ios/CDVRollbar.h" />
         <source-file src="platforms/ios/CDVRollbar.m" />
 
-        <config-file target="*-Info.plist" parent="CritterAppID">
+        <config-file target="*-Info.plist" parent="RollbarAccessToken">
             <string>$ROLLBAR_ACCESS_TOKEN</string>
+        </config-file>
+		
+		<config-file target="*-Info.plist" parent="RollbarEnvironment">
 			<string>$ROLLBAR_ENVIRONMENT</string>
         </config-file>
 

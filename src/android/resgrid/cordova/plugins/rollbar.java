@@ -43,13 +43,13 @@ public class CDVRollbar extends CordovaPlugin {
                            CallbackContext callbackContext) throws JSONException {
         try {
             if (INIT.equals(action)) {
-                final String msg = args.getString(0);
-                final String stack = args.getString(1);
-                cordova.getThreadPool().execute(new Runnable() {
-                    public void run() {
-						Rollbar.reportException(stack, "critical", msg);
-                    }
-                });
+                //final String msg = args.getString(0);
+                //final String stack = args.getString(1);
+                //cordova.getThreadPool().execute(new Runnable() {
+                //    public void run() {
+				//		Rollbar.reportException(stack, "critical", msg);
+                //    }
+                //});
                 return true;
             } 
 
