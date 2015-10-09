@@ -9,7 +9,7 @@
     <name>Rollbar</name>
 
     <description>
-      This plugin adds Rollbar App monitoring to your application.
+      This plugin adds Rollbar App monitoring to your application. Currently supports iOS and Android. This plugin was created by Resgrid for use in our Ionic applications. You need to subscribe to the Rollbar service to use the plugin and make sure to set the ROLLBAR_ACCESS_TOKEN and ROLLBAR_ENVIRONMENT variables on install.
     </description>
 
     <license>Apache 2.0</license>
