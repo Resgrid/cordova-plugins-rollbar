@@ -27,7 +27,6 @@ cordova plugin add https://github.com/Resgrid/cordova-plugins-rollbar.git
 
 - Android
 - iOS
-- WP8 (Coming Soon)
 
 ## Notes ##
 Currently in development, we welcome PR's and other fixes. Hope to have it production ready soon.
