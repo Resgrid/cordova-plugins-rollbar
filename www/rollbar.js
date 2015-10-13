@@ -10,8 +10,8 @@ var exec = require('cordova/exec');
 
 var Rollbar = function(){};
 
-Rollbar.init = function(key, successCallback, errorCallback){
-  return exec(successCallback, errorCallback, "CDVRollbar", "init", [token,environment]);
+Rollbar.init = function(successCallback, errorCallback){
+  return exec(successCallback, errorCallback, "CDVRollbar", "init", []);
 };
 
 module.exports = Rollbar;

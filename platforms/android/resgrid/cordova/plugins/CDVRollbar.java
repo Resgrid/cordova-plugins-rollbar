@@ -1,4 +1,4 @@
-package resgrid.cordvoa.plugins.rollbar;
+package resgrid.cordova.plugins.rollbar;
 
 import java.net.URL;
 
@@ -14,6 +14,8 @@ import org.json.JSONObject;
 
 import android.content.Context;
 import android.content.res.Resources;
+
+import com.rollbar.android.Rollbar;
 
 public class CDVRollbar extends CordovaPlugin {
     public static final String INIT = "init";
