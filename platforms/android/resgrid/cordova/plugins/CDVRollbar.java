@@ -12,24 +12,23 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.util.Log;
 import android.content.Context;
 import android.content.res.Resources;
 
 import com.rollbar.android.Rollbar;
 
 public class CDVRollbar extends CordovaPlugin {
+	public static final String TAG = "RollbarPlugin";
     public static final String INIT = "init";
 
     public static final String ROLLBAR_ACCESS_TOKEN = "rollbar_access_token";
 	public static final String ROLLBAR_ENVIRONMENT = "rollbar_environment";
-	
-    public static final String STRING = "string";
 
     private String packageName;
 
     @Override
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
-        super.initialize(cordova, webView);
         Context context = this.cordova.getActivity();
         packageName = context.getPackageName();
         Resources resources = context.getResources();
@@ -37,30 +36,20 @@ public class CDVRollbar extends CordovaPlugin {
         String rollbarAccessToken = context.getString(resources.getIdentifier(ROLLBAR_ACCESS_TOKEN, STRING, packageName));
 		String rollbarEnvironment = context.getString(resources.getIdentifier(ROLLBAR_ENVIRONMENT, STRING, packageName));
 		
+		Log.v(TAG, "Initializing Rollbar with token (" + rollbarAccessToken + ") and environment ("  + rollbarEnvironment + ")");
+		
 		Rollbar.init(context, rollbarAccessToken, rollbarEnvironment);
+		
+		super.initialize(cordova, webView);
     }
 
     @Override
     public boolean execute(String action, final JSONArray args,
                            CallbackContext callbackContext) throws JSONException {
-        try {
-            if (INIT.equals(action)) {
-                //final String msg = args.getString(0);
-                //final String stack = args.getString(1);
-                //cordova.getThreadPool().execute(new Runnable() {
-                //    public void run() {
-				//		Rollbar.reportException(stack, "critical", msg);
-                //    }
-                //});
-                return true;
-            } 
-
-            return false;
-        } catch (ThreadDeath td) {
-            throw td;
-        } catch (Throwable t) {
-			Rollbar.reportException(t);
-            return false;
-        }
+						   
+		/**
+		 * For right now we call Rollbar on initialize to get it monitoring as soon as possible. Other operations will be added here in the future.
+		 */
+         return true;
     }
 }
