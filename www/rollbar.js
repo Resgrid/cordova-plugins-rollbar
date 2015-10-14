@@ -8,7 +8,7 @@
 
 var exec = require('cordova/exec');
 
-var Rollbar = function(){};
+var Rollbar = {};
 
 Rollbar.init = function(successCallback, errorCallback){
   return exec(successCallback, errorCallback, "CDVRollbar", "init", []);

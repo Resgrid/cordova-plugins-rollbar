@@ -4,7 +4,7 @@
     xmlns:rim="http://www.blackberry.com/ns/widgets"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="resgrid.cordova.plugins.rollbar"
-    version="1.1.0">
+    version="1.2.0">
 
     <name>Rollbar</name>
 
@@ -28,7 +28,7 @@
     <!-- ios -->
     <platform name="ios">
         <preference name="ROLLBAR_ACCESS_TOKEN" />
-		<preference name="ROLLBAR_ENVIRONMENT" />
+        <preference name="ROLLBAR_ENVIRONMENT" />
         <config-file target="config.xml" parent="/*">
             <feature name="CDVRollbar">
                 <param name="ios-package" value="CDVRollbar" />
@@ -43,19 +43,19 @@
         <config-file target="*-Info.plist" parent="RollbarAccessToken">
             <string>$ROLLBAR_ACCESS_TOKEN</string>
         </config-file>
-		
-		<config-file target="*-Info.plist" parent="RollbarEnvironment">
-			<string>$ROLLBAR_ENVIRONMENT</string>
+        
+        <config-file target="*-Info.plist" parent="RollbarEnvironment">
+            <string>$ROLLBAR_ENVIRONMENT</string>
         </config-file>
 
         <framework src="platforms/ios/RollbarSDK/CrashReporter.framework" />
-		<framework src="platforms/ios/RollbarSDK/Rollbar.framework" />
+        <framework src="platforms/ios/RollbarSDK/Rollbar.framework" />
     </platform>
 
     <!-- android -->
     <platform name="android">
         <preference name="ROLLBAR_ACCESS_TOKEN" />
-		<preference name="ROLLBAR_ENVIRONMENT" />
+        <preference name="ROLLBAR_ENVIRONMENT" />
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="CDVRollbar">
                 <param name="android-package" value="resgrid.cordova.plugins.rollbar.CDVRollbar" />
@@ -66,12 +66,12 @@
         <source-file src="platforms/android/res/values/rollbar.xml" target-dir="res/values/" />
         <config-file target="res/values/rollbar.xml" parent="/*">
             <string name="rollbar_access_token">$ROLLBAR_ACCESS_TOKEN</string>
-			<string name="rollbar_environment">$ROLLBAR_ENVIRONMENT</string>
+            <string name="rollbar_environment">$ROLLBAR_ENVIRONMENT</string>
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="/*">
             <meta-data android:name="resgrid.cordova.plugins.rollbar.AccessToken" android:value="@string/rollbar_access_token"/>
-			<meta-data android:name="resgrid.cordova.plugins.rollbar.Environment" android:value="@string/rollbar_environment"/>
+            <meta-data android:name="resgrid.cordova.plugins.rollbar.Environment" android:value="@string/rollbar_environment"/>
             <!-- PhoneGap adds the INTERNET permission by itself -->
             <uses-permission android:name="android.permission.READ_LOGS"/>
             <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
