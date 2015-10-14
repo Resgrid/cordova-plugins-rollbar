@@ -58,7 +58,7 @@
 		<preference name="ROLLBAR_ENVIRONMENT" />
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="CDVRollbar">
-                <param name="android-package" value="resgrid.cordova.plugins.rollbar" />
+                <param name="android-package" value="resgrid.cordova.plugins.rollbar.CDVRollbar" />
                 <param name="onload" value="true" />
             </feature>
         </config-file>
@@ -82,7 +82,7 @@
         <source-file src="platforms/android/RollbarSDK/rollbar-android-0.1.2.jar" target-dir="libs/" framework="true" />
 
         <!-- cordova plugin src files -->
-        <source-file src="platforms/android/resgrid/cordova/plugins/rollbar.java" target-dir="src/resgrid/cordova/plugins/" />
+        <source-file src="platforms/android/resgrid/cordova/plugins/CDVRollbar.java" target-dir="src/resgrid/cordova/plugins/rollbar" />
 
     </platform>
 
