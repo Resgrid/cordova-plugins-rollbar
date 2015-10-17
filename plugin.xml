@@ -4,7 +4,7 @@
     xmlns:rim="http://www.blackberry.com/ns/widgets"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="resgrid.cordova.plugins.rollbar"
-    version="1.2.0">
+    version="1.3.0">
 
     <name>Rollbar</name>
 
@@ -48,8 +48,11 @@
             <string>$ROLLBAR_ENVIRONMENT</string>
         </config-file>
 
-        <framework src="platforms/ios/RollbarSDK/CrashReporter.framework" />
-        <framework src="platforms/ios/RollbarSDK/Rollbar.framework" />
+        <!-- CrashReporter Lib -->
+        <framework src="platforms/ios/RollbarSDK/libCrashReporter-iphoneos.a" />
+
+        <!-- Rollbar Lib -->
+        <framework src="platforms/ios/RollbarSDK/libRollbar.a" />
     </platform>
 
     <!-- android -->
@@ -79,7 +82,7 @@
         </config-file>
 
         <!-- copy Rollbar Lib -->
-        <source-file src="platforms/android/RollbarSDK/rollbar-android-0.1.2.jar" target-dir="libs/" framework="true" />
+        <source-file src="platforms/android/RollbarSDK/rollbar-android-0.1.2.jar" target-dir="libs/" framework="true"/>
 
         <!-- cordova plugin src files -->
         <source-file src="platforms/android/resgrid/cordova/plugins/CDVRollbar.java" target-dir="src/resgrid/cordova/plugins/rollbar" />

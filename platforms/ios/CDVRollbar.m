@@ -4,7 +4,7 @@
 //  
 //
 
-#import <Rollbar/Rollbar.h>
+#import "CDVRollbar.h"
 
 @implementation CDVRollbar
 

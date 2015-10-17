@@ -10,7 +10,7 @@
 
 @interface CDVRollbar : CDVPlugin
 
- (void)init:(CDVInvokedUrlCommand *)command;
+- (void)init:(CDVInvokedUrlCommand *)command;
 
 @end
 
