@@ -43,8 +43,7 @@ public class CDVRollbar extends CordovaPlugin {
         try {
             Rollbar.init(context, rollbarAccessToken, rollbarEnvironment);
         } catch (Exception e) {
-            Log.e(TAG, "Initializing Rollbar with token (" + rollbarAccessToken + ") and environment ("  + rollbarEnvironment + ")");
-            throw e;
+            Log.e(TAG, "Initializing Rollbar failed", e);
         }
         
         super.initialize(cordova, webView);
