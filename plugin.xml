@@ -49,12 +49,10 @@
         </config-file>
 
         <!-- CrashReporter Lib -->
-        <!--<framework src="src/ios/RollbarSDK/libCrashReporter-iphoneos.a" />-->
         <framework src="src/ios/CrashReporter.framework" custom="true" />
 
         <!-- Rollbar Lib -->
         <framework src="src/ios/Rollbar.framework" custom="true" />
-        <!--<framework src="src/ios/RollbarSDK/libRollbar.a" />-->
     </platform>
 
     <!-- android -->
