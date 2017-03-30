@@ -24,16 +24,44 @@ cordova plugin add https://github.com/Resgrid/cordova-plugins-rollbar.git --vari
 ```
 
 ## Usage ##
-After device ready call the following line of code to initialize the Rollbar plugin. Note that the token and environment are pulled form the plugin vairables.
+After device ready call the following line of code to initialize the Rollbar plugin. Note that the token and environment are pulled form the plugin variables.
 
 ```
-cordova.plugins.Rollbar.init();
+cordova.plugins.Rollbar.native.init();
+```
+
+For custom usage of rollbar, do:
+```
+const Rollbar = cordova.plugins.Rollbar.browser.init({
+    accessToken: TOKEN,
+    captureUncaught: true,
+    captureUnhandledRejections: true,
+    payload: {
+        environment: "development"
+    }
+});
+```
+
+And then you can use that `Rollbar` object normally, for example as an Ionic error handler:
+```
+export class MyErrorHandler extends IonicErrorHandler implements ErrorHandler {
+    handleError(error: any): void {
+        if (useRollbar) {
+            console.warn("Reporting to Rollbar");
+            console.error(error);
+            Rollbar.error(error);
+        }
+
+        super.handleError(error);
+    }
+}
 ```
 
 ## Supported Platforms ##
 
 - Android
 - iOS
+- Browser
 
 ## Notes ##
 Currently in development, we welcome PR's and other fixes. Hope to have it production ready soon.
