@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/Resgrid/cordova-plugins-rollbar/issues"
   },
-  "homepage": "https://github.com/Resgrid/cordova-plugins-rollbar"
+  "homepage": "https://github.com/Resgrid/cordova-plugins-rollbar",
+  "dependencies": {
+    "rollbar-browser": "^1.9.4"
+  }
 }
