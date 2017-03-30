@@ -7,11 +7,19 @@
  */
 
 var exec = require('cordova/exec');
+var RollbarSetup = require('rollbar-browser/dist/rollbar.umd.nojson.js');
 
-var Rollbar = {};
-
-Rollbar.init = function(successCallback, errorCallback){
-  return exec(successCallback, errorCallback, "CDVRollbar", "init", []);
+var Rollbar = {
+  native: {
+    init: function(successCallback, errorCallback){
+      return exec(successCallback, errorCallback, "CDVRollbar", "init", []);
+    }
+  },
+  browser: {
+    init: function(config) {
+      return RollbarSetup.init(config);
+    }
+  }
 };
 
 module.exports = Rollbar;

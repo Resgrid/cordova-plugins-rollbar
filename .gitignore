@@ -1,2 +1,4 @@
 rollbar.sublime-project
 rollbar.sublime-workspace
+/node_modules/
+/.idea
