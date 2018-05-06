@@ -1,3 +1,6 @@
+## DEPRECATED: Resgrid has not used Rollbar for a while, well over 2 years. Instead we've transitationed to Microsoft AppCenter Crashes [https://docs.microsoft.com/en-us/appcenter/sdk/crashes/cordova](https://docs.microsoft.com/en-us/appcenter/sdk/crashes/cordova). If you are using Ionic Framework Pro we highly recommend Ionic Monitor [https://ionicframework.com/pro/monitor](https://ionicframework.com/pro/monitor). If you still need the pluging we will continue to accept pull requests only.
+##
+
 Resgrid's Rollbar Cordova Plugin
 ==============
 
